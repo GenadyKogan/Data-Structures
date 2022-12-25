@@ -1,0 +1,162 @@
+Problem Description
+A hash table is a data structure used to implement an associative array, a structure that can map keys to values. A hash table uses a hash function to compute an index into an array of buckets or slots. Due to collision of keys while inserting elements into the hash table, idea of Linear Probing is used to probe the through the subsequent elements (looping back) of array starting from hash code value (index of the key) where key collision occurs.
+
+Problem Solution
+1. Create an array of structure (i.e a hash table).
+2. Take a key and a value to be stored in hash table as input.
+3. Corresponding to the key, an index will be generated i.e every key is stored in a particular array index.
+4. Using the generated index, access the data located in that array index.
+5. In case of absence of data, create one and insert the data item (key and value) into it and increment the size of hash table.
+6. In case the data exists, probe through the subsequent elements (looping back if necessary) for free space to insert new data item.
+Note: This probing will continue until we reach the same element again (from where we began probing)
+7. To display all the elements of hash table, element at each index is accessed (via for loop).
+8. To remove a key from hash table, we will first calculate its index and delete it if key matches, else probe through elements until we find key or an empty space where not a single data has been entered (means data does not exist in the hash table).
+9. Exit
+
+Program Explanation
+1. Create a structure, item having a key and value representing data to be inserted in hash table.
+2. Create another structure, hash table_item with variable data (key and value) and flag as a status variable which informs about the status of array index.
+flag = 1 : presence of some data at the array index.
+flag = 0 : data not present in array index even once
+flag = 2 : data had been removed from array index at least once
+3. Now create an array of structure (hashtable_item) of some certain size (10, in this case). This array will be our hash table.
+4. A menu is displayed on the screen.
+5. User must choose one option from four choices given in the menu.
+6. 1st choice: Inserting item into hash table
+(a) Take a key and a value as input.
+(b) Calculate index as per the given key (using hashcode() function).
+(c) Access the element at this calculated index in array.
+(d) If there is no element at that particular array index, add straight way.
+(e) If an element is present, check whether the given key matches the element’s key. If yes, then update it’s value and return. Otherwise probe through subsequent elements (looping back if necessary), to find free space. While probing
+* if given key matches the element’s key, update its value and return.
+* if a free space is found, add the data at that position.
+Probing will stop until we reach the same element from where we began probing. Until then, if no free space is found, then add will fail.
+7. 2nd choice: Removing a key from hash table
+(a) Take a key as input which needs to be removed.
+(b) Calculate index as per the given key (using hashcode() function).
+(c) Access the element at the calculated array index.
+(d) If an element is present, check whether the given key matches the element’s key. If yes, then delete the key and return decrementing the size. Otherwise probe through subsequent elements (looping back if necessary), to find free space with flag = 0. While probing
+* if given key matches the element’s key, delete and return.
+* if a free space is found (with flag = 2), continue to probe.
+(e) If no free space (flag = 0) is found even after probing through all element it means, key does not exist in the hash table.
+8. 3rd choice: Size of hash table
+(a) Each time we add a new data item into the hash table, we increment it’s size by 1.
+(b) Each time we remove a data item from the hash table, we decrement it’s size by 1.
+(c) The size of the hash table can be determined either by size variable or size_of_hashtable() method.
+9. 4th choice: Display hash table
+(a) Function display() runs for displaying hash table contents.
+(b) Here a for loop runs from 0 to array_size-1 with i as iterator.
+(c) The code inside loop consists of taking i as index and accessing each element at that index of array.
+
+Runtime Test Cases
+ 
+Implementation of Hash Table in C with Linear Probing
+MENU-:
+1. Inserting item in the Hashtable
+2. Removing item from the Hashtable
+3. Check the size of Hashtable
+4. Display Hashtable
+ 
+Please enter your choice-: 3
+Size of Hashtable is-: 0
+ 
+Do you want to continue-:(press 1 for yes) 1
+Implementation of Hash Table in C with Linear Probing
+MENU-:
+1. Inserting item in the Hashtable
+2. Removing item from the Hashtable
+3. Check the size of Hashtable
+4. Display Hashtable
+ 
+Please enter your choice-: 1
+Inserting element in Hashtable
+Enter key and value-:   12 	10
+ 
+ Key (12) has been inserted
+ 
+Do you want to continue-:(press 1 for yes) 1
+Implementation of Hash Table in C with Linear Probing
+MENU-:
+1. Inserting item in the Hashtable
+2. Removing item from the Hashtable
+3. Check the size of Hashtable
+4. Display Hashtable
+ 
+Please enter your choice-: 1
+Inserting element in Hash table
+Enter key and value-:   122 	4
+ 
+ Key (122) has been inserted
+ 
+Do you want to continue-:(press 1 for yes) 1
+Implementation of Hash Table in C with Linear Probing
+MENU-:
+1. Inserting item in the Hashtable
+2. Removing item from the Hashtable
+3. Check the size of Hashtable
+4. Display Hashtable
+ 
+Please enter your choice-: 3
+Size of Hashtable is-: 2
+ 
+Do you want to continue-:(press 1 for yes) 1
+Implementation of Hash Table in C with Linear Probing
+MENU-:
+1. Inserting item in the Hashtable
+2. Removing item from the Hashtable
+3. Check the size of Hashtable
+4. Display Hashtable
+ 
+Please enter your choice-: 4
+Array[0] has  no elements
+ 
+Array[1] has no elements
+ 
+Array[2] has elements-:
+12 (key) and 10 (value)
+ 
+Array[3] has elements-:
+122(key) and 5(value)
+ 
+Array[4] has no elements
+ 
+Array[5] has no elements
+ 
+Array[6] has no elements
+ 
+Array[7] has no elements
+ 
+Array[8] has no elements
+ 
+Array[9] has no elements
+ 
+ 
+Do you want to continue-:(press 1 for yes) 1
+Implementation of Hash Table in C with Linear Probing
+MENU-:
+1. Inserting item in the Hashtable
+2. Removing item from the Hashtable
+3. Check the size of Hashtable
+4. Display Hashtable
+ 
+Please enter your choice-: 2
+Deleting in Hashtable
+Enter the key to delete-: 122
+ 
+ Key (122) has been removed
+ 
+Do you want to continue-:(press 1 for yes) 1
+Implementation of Hash Table in C with Linear Probing
+MENU-:
+1. Inserting item in the Hashtable
+2. Removing item from the Hashtable
+3. Check the size of Hashtable
+4. Display Hashtable
+ 
+Please enter your choice-: 2
+Deleting in Hashtable
+Enter the key to delete-: 56
+ 
+ This key does not exist
+ 
+Do you want to continue-:(press 1 for yes) 2
