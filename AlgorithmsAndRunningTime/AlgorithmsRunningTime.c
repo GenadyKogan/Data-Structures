@@ -1,7 +1,7 @@
 //
 // Created by rgkog on 9/27/2023.
 //
-
+#define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
 void task1(int);
 void task2(int);
@@ -13,11 +13,8 @@ void task6(int);
 void task7(int);
 void task8(int);
 void task9(int n);
-
-
-int task10(int arr[], int n, int* max1, int* max2, int* comparisons);
-
-// task 10: tree solution
+int task11(int arr[], int n, int* max1, int* max2, int* comparisons);
+// task 11: tree solution
 struct TreeNode {
     int data;
     struct TreeNode* left;
@@ -26,6 +23,11 @@ struct TreeNode {
 struct TreeNode* createNode(int data);
 struct TreeNode* insert(struct TreeNode* root, int data);
 void findTwoLargest(struct TreeNode* root, int* max1, int* max2);
+
+
+// 19.02.2018
+void task12(int);
+
 //=========================================
 //=========================================
 int main(void){
@@ -43,7 +45,7 @@ int main(void){
 //    task9(n);
 
 //=========================================
-// task 10.1 using array
+// task 11.1 using array
 //=========================================
     /*printf("Enter the number of elements: ");
     scanf("%d", &n);
@@ -70,38 +72,40 @@ int main(void){
     printf("Number of comparisons: %d\n", comparisons);*/
 
 //=========================================
-// task 10.2 using tree
+// task 11.2 using tree
 //=========================================
-    printf("Enter the number of elements: ");
-    scanf("%d", &n);
+//    printf("Enter the number of elements: ");
+//    scanf("%d", &n);
+//
+//    if (n < 2) {
+//        printf("Array does not have two largest elements.\n");
+//        return 1; // Exit with an error code
+//    }
+//
+//    int arr[n]; // Declare an array of size n
+//    printf("Enter %d elements:\n", n);
+//
+//    // Read elements into the array
+//    for (int i = 0; i < n; i++) {
+//        scanf("%d", &arr[i]);
+//    }
+//
+//    // Build a BST from the array elements
+//    struct TreeNode* root = NULL;
+//    for (int i = 0; i < n; i++) {
+//        root = insert(root, arr[i]);
+//    }
+//
+//    int max1 = -1, max2 = -1;
+//
+//    // Find the largest and second largest elements in the BST
+//    findTwoLargest(root, &max1, &max2);
+//
+//    // Print the two largest elements
+//    printf("First largest element: %d\n", max1);
+//    printf("Second largest element: %d\n", max2);
 
-    if (n < 2) {
-        printf("Array does not have two largest elements.\n");
-        return 1; // Exit with an error code
-    }
-
-    int arr[n]; // Declare an array of size n
-    printf("Enter %d elements:\n", n);
-
-    // Read elements into the array
-    for (int i = 0; i < n; i++) {
-        scanf("%d", &arr[i]);
-    }
-
-    // Build a BST from the array elements
-    struct TreeNode* root = NULL;
-    for (int i = 0; i < n; i++) {
-        root = insert(root, arr[i]);
-    }
-
-    int max1 = -1, max2 = -1;
-
-    // Find the largest and second largest elements in the BST
-    findTwoLargest(root, &max1, &max2);
-
-    // Print the two largest elements
-    printf("First largest element: %d\n", max1);
-    printf("Second largest element: %d\n", max2);
+    task12(n);
     return 0;
 }
 //=========================================
@@ -215,7 +219,10 @@ void task9(int n){
 }
 
 //=========================================
-int task10(int arr[], int n, int* max1, int* max2, int* comparisons){
+//=========================================
+// task 11.1 using array
+//=========================================
+int task11(int arr[], int n, int* max1, int* max2, int* comparisons){
     if (n < 2) {
         printf("Array does not have two largest elements.\n");
         return;
@@ -242,11 +249,12 @@ int task10(int arr[], int n, int* max1, int* max2, int* comparisons){
     }
 
 }
+//=========================================
+// task 11.2 using tree
+//=========================================
 // To find the two largest numbers in an array using a binary search tree (BST), you can follow these steps:
 // 1. Build a BST from the elements of the array.
 // 2. Traverse the BST to find the largest and second largest elements.
-
-
 
 // Function to create a new node
 struct TreeNode* createNode(int data) {
@@ -291,4 +299,17 @@ void findTwoLargest(struct TreeNode* root, int* max1, int* max2) {
     }
 
     findTwoLargest(root->left, max1, max2);
+}
+
+//=========================================
+
+void task12(int n){
+    int i = 1;
+    int k = 0;
+      while (i <= n) {
+        for (int j = i; j <= n * n; j++) {
+            k = k + 1;
+        }
+        i = i * 2;
+    }
 }
