@@ -13,8 +13,6 @@ void task6(int);
 void task7(int);
 void task8(int);
 void task9(int n);
-
-
 int task10(int arr[], int n, int* max1, int* max2, int* comparisons);
 
 // task 10: tree solution
@@ -29,7 +27,7 @@ void findTwoLargest(struct TreeNode* root, int* max1, int* max2);
 //=========================================
 //=========================================
 int main(void){
-    int n=9;
+    int n=4;
     int A[] = {1, 2, 3, 2, 4, 3, 5};
     int length = sizeof(A) / sizeof(A[0]);
 //    task1(n);
@@ -39,7 +37,7 @@ int main(void){
 //    countSingles(A, length);
 //    task6(n);
 //    task7(n);
-//    task8(n);
+    task8(n);
 //    task9(n);
 
 //=========================================
@@ -72,36 +70,36 @@ int main(void){
 //=========================================
 // task 10.2 using tree
 //=========================================
-    printf("Enter the number of elements: ");
-    scanf("%d", &n);
-
-    if (n < 2) {
-        printf("Array does not have two largest elements.\n");
-        return 1; // Exit with an error code
-    }
-
-    int arr[n]; // Declare an array of size n
-    printf("Enter %d elements:\n", n);
-
-    // Read elements into the array
-    for (int i = 0; i < n; i++) {
-        scanf("%d", &arr[i]);
-    }
-
-    // Build a BST from the array elements
-    struct TreeNode* root = NULL;
-    for (int i = 0; i < n; i++) {
-        root = insert(root, arr[i]);
-    }
-
-    int max1 = -1, max2 = -1;
-
-    // Find the largest and second largest elements in the BST
-    findTwoLargest(root, &max1, &max2);
-
-    // Print the two largest elements
-    printf("First largest element: %d\n", max1);
-    printf("Second largest element: %d\n", max2);
+//    printf("Enter the number of elements: ");
+//    scanf("%d", &n);
+//
+//    if (n < 2) {
+//        printf("Array does not have two largest elements.\n");
+//        return 1; // Exit with an error code
+//    }
+//
+//    int arr[n]; // Declare an array of size n
+//    printf("Enter %d elements:\n", n);
+//
+//    // Read elements into the array
+//    for (int i = 0; i < n; i++) {
+//        scanf("%d", &arr[i]);
+//    }
+//
+//    // Build a BST from the array elements
+//    struct TreeNode* root = NULL;
+//    for (int i = 0; i < n; i++) {
+//        root = insert(root, arr[i]);
+//    }
+//
+//    int max1 = -1, max2 = -1;
+//
+//    // Find the largest and second largest elements in the BST
+//    findTwoLargest(root, &max1, &max2);
+//
+//    // Print the two largest elements
+//    printf("First largest element: %d\n", max1);
+//    printf("Second largest element: %d\n", max2);
     return 0;
 }
 //=========================================
@@ -163,6 +161,7 @@ void task6(int n){
         for (int j = 1; j <= i; j++) {
             k = k + 1;
         }
+        printf("k = %d\n",k);
     }
 
     
@@ -175,7 +174,7 @@ void task7(int n){
     int i = 1;
     int q = 1;
     int r = 4;
-    while (i <= n) {
+    while (i < n) {
         int j = 0;
         while (j < q) {
             k = k + 1;
@@ -195,9 +194,9 @@ void task8(int n){
     while (i < n) {
         k = k + 1;
         i = i * 2;
-
+        printf("i = %d, k = %d\n", i, k);
     }
-    printf("k = %d\n", k);
+
 }
 
 //=========================================
