@@ -245,8 +245,6 @@ int task10(int arr[], int n, int* max1, int* max2, int* comparisons){
 // 1. Build a BST from the elements of the array.
 // 2. Traverse the BST to find the largest and second largest elements.
 
-
-
 // Function to create a new node
 struct TreeNode* createNode(int data) {
     struct TreeNode* newNode = (struct TreeNode*)malloc(sizeof(struct TreeNode));
