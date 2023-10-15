@@ -31,7 +31,7 @@ void task12(int);
 //=========================================
 //=========================================
 int main(void){
-    int n=16;
+    int n=9;
     int A[] = {1, 2, 3, 2, 4, 3, 5};
     int length = sizeof(A) / sizeof(A[0]);
 //    task1(n);
@@ -42,7 +42,7 @@ int main(void){
 //    task6(n);
 //    task7(n);
 //    task8(n);
-    task9(n);
+//    task9(n);
 
 //=========================================
 // task 11.1 using array
@@ -206,14 +206,11 @@ void task8(int n){
 
 //=========================================
 void task9(int n){
-
     for (int i = 1; i <= n; i++) {
         int k = 1;
-        int j=0;
         while (k < i) {
             k = k * 2;
-            j=j+1;
-            printf("inner loop; j = %d\n",j);
+            printf("inner loop\n");
         }
         // At this point, the value of k will be the largest power of 2 less than or equal to i.
         printf("i = %d, k = %d\n", i, k);
