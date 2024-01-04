@@ -77,7 +77,12 @@ int main()
 	//	 4	6   13 10
 	// / \ / \
 	// 9 8 15 17
-	int arr[] = {x ,1, 3, 5, 4, 6, 13, 10, 9, 8, 15, 17};
+    /* Here we start from index = 1 */
+	int arr[] = {-1 ,1, 3, 5, 4, 6, 13, 10, 9, 8, 15, 17};
+    /*
+     * Define parent to be in index = 4 => left child will be in index/2 and right child in index/2 + 1.
+     * Define child to be in index = 5 => parent will be in index/2.
+     * */
 
 	int N = sizeof(arr) / sizeof(arr[0]);
 
