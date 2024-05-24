@@ -38,7 +38,7 @@ bool isDegenerate(struct Node* node) {
     if (node->right != NULL)
         return isDegenerate(node->right);
 
-    return true;x
+    return true;
 }
 
 // Driver code
